@@ -11,3 +11,40 @@ typescript
 
 npm i (install)
 npm run dev
+
+# project structure
+
+node_modeuls - npm packages, never have to touch
+public - public assets of site like images, video
+src - src code of app
+
+index.html entry point to app - div with id of root (replaced by react) - script tag with type="module" src"/src/main.tsx"
+
+package.json
+dependencies and dev dependencies (those are not deployed)
+
+tsconfig.json - how to compile ts to js - almost never will touch
+
+vite.config.ts - mostly won't ever touch
+
+# typescript
+
+ts for plain ts
+tsx for ts components
+
+# jsx
+
+babeljs.io/repl - see how code is compiled
+
+# hmr
+
+hot module reload - reloads vite server for you
+
+# react
+
+react is a libray, not framework (like angular/vue)
+
+library - tool
+framework - toolset
+
+often need additional tools like - routing - http - managing app state - internationalization - form validation - animations
