@@ -2,17 +2,20 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [drink, setDrink] = useState({
-    title: "Americano",
-    price: 5,
+  const [customer, setCustomer] = useState({
+    name: "John",
+    address: {
+      city: "San Fran",
+      zipCode: 94111,
+    },
   });
 
   const handleClick = () => {
-    const newDrink = {
-      ...drink, // spread all properties
-      price: 6,
-    };
-    setDrink(newDrink);
+    // spread is shallow, if you created two customers they'd both get the same address referenced, so we have to respecify
+    setCustomer({
+      ...customer,
+      address: { ...customer.address, zipCode: 94112 },
+    });
   };
 
   return (
