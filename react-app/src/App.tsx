@@ -1,8 +1,26 @@
-import Like from "./components/Like/Like";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
-  return <Like onClick={() => console.log("clicked")} />;
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  });
+
+  const handleClick = () => {
+    const newDrink = {
+      ...drink, // spread all properties
+      price: 6,
+    };
+    setDrink(newDrink);
+  };
+
+  return (
+    <div>
+      {drink.price}
+      <button onClick={handleClick}>Click Me</button>
+    </div>
+  );
 }
 
 export default App;
