@@ -12,6 +12,8 @@ typescript
 npm i (install)
 npm run dev
 
+npm i bootstrap@5.2.3
+
 # project structure
 
 node_modeuls - npm packages, never have to touch
@@ -48,3 +50,15 @@ library - tool
 framework - toolset
 
 often need additional tools like - routing - http - managing app state - internationalization - form validation - animations
+
+# css
+
+bootstrap added
+
+https://getbootstrap.com/docs/5.3/components/list-group/ - for how to form html with bootstrap
+
+class is reserved in jsx - so use className
+
+# fragments
+
+can import Fragment from "react" and use <Fragment> OR <> without
