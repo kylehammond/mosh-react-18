@@ -96,3 +96,31 @@ chakra ui - like tailwind, mosh likes, uses in this course
 many more
 
 react-icons - package of lots and lots of icons for each ui
+
+# state management
+
+react updates state async (not immediately)
+batches up setstates
+
+state is stored outside of components
+(state is in memory as long as component is seen)
+
+can only use hooks at the top level of a component
+(have to be at top of function)
+
+## best pracs:
+
+avoid redundant state variables (anything that can be computed from existing state vars)
+
+group related variables inside na object instead of separate state hooks
+
+avoid deeply nested structures in your objects
+(they can be hard to update)
+
+## component purity
+
+pure function - given the same input, always returns the same result
+
+react expects every component to be a pure function (for performance reasons - if it hasn't changed it doesn't rerender)
+
+kepe
