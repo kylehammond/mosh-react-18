@@ -2,21 +2,23 @@ import React, { useState } from "react";
 
 interface Props {
   children: string;
-  maxChars: number;
+  maxChars?: number;
 }
 
-const ExpandableText = ({ children, maxChars }: Props) => {
-  const [showHideToggle, setShowHideToggle] = useState(false);
+const ExpandableText = ({ children, maxChars = 100 }: Props) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = () => {
-    setShowHideToggle(!showHideToggle);
-  };
+  if (children.length <= maxChars) return <p>{children}</p>;
+
+  const text = isExpanded ? children : children.substring(0, maxChars);
 
   return (
-    <div>
-      {showHideToggle ? children : children.slice(0, maxChars)}
-      <button onClick={handleClick}>{showHideToggle ? "Hide" : "Show"}</button>
-    </div>
+    <>
+      <p>{text}...</p>
+      <button onClick={() => setIsExpanded(!isExpanded)}>
+        {isExpanded ? "Hide" : "Show"}
+      </button>
+    </>
   );
 };
 
