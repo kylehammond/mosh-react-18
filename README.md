@@ -123,4 +123,17 @@ pure function - given the same input, always returns the same result
 
 react expects every component to be a pure function (for performance reasons - if it hasn't changed it doesn't rerender)
 
-kepe
+keep changes out of the render phase
+
+    Imagine a Message component that takes 'count' as a prop
+    if the count was defined outside of the Message render function - there's a chance it could be changed each time it renders leading to an impure function
+
+
+    let count = 0;
+
+    const Message = () => {
+        count++;
+        return <div>Message {count}</div>
+    }
+
+    it would be totally fine to move let count = 0 to the rendering - because it would always start at 0 and increment 1 time
