@@ -85,3 +85,14 @@ state
 # shortcuts
 
 rafce = react arrow function componenent export
+
+# popular ui libraries
+
+bootstrap - useful components, easy to use
+material ui - open source react component library, google
+tailwind - utility first css library - small utility classes vs full components
+daisy ui - fuller components, like bootstrap
+chakra ui - like tailwind, mosh likes, uses in this course
+many more
+
+react-icons - package of lots and lots of icons for each ui
