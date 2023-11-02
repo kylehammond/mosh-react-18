@@ -2,7 +2,7 @@
 
 # env setup
 
-install prettier
+vscode extension: prettier
 turn on format on save in vs code
 
 npm create vite@4.1.0 (@latest if on your own)
@@ -13,6 +13,9 @@ npm i (install)
 npm run dev
 
 npm i bootstrap@5.2.3
+
+vscode extension: oh lucy - color scheme (optional)
+vscode extension: ES7+ React/Redux/React-Native snippets
 
 # project structure
 
@@ -62,3 +65,23 @@ class is reserved in jsx - so use className
 # fragments
 
 can import Fragment from "react" and use <Fragment> OR <> without
+
+# props vs state
+
+props
+
+- input passed to a component
+- similar to function args
+- immutable
+- cause a re-render
+
+state
+
+- data managed by a component
+- similar to local variables
+- mutable
+- cause a re-render
+
+# shortcuts
+
+rafce = react arrow function componenent export
