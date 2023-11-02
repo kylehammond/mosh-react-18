@@ -145,3 +145,13 @@ npm i immer@9.0.19
 ## react hook form
 
 npm i react-hook-form@7.43
+
+# validation libs
+
+joi
+yup
+zod (used in this course because it was trending)
+
+npm i zod@3.20.6
+
+npm i @hookform/resolvers@2.9.11 - to resolve zod with react hook form
