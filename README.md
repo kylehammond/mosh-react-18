@@ -141,3 +141,7 @@ keep changes out of the render phase
 ## Immer
 
 npm i immer@9.0.19
+
+## react hook form
+
+npm i react-hook-form@7.43
