@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 
 // interface ExpenseItem {
 //   id: number
@@ -8,11 +8,21 @@ import React, { useState } from "react";
 // }
 
 const ExpenseTrackerList = () => {
-  let categories = ["Groceries", "Utilities", "Entertainment"];
-
-  let [expenses, setExpenses] = useState([
+  const [expenses, setExpenses] = useState([
     { id: 1, description: "Some item ", amount: 1, category: "Groceries" },
+    { id: 2, description: "Some item ", amount: 3, category: "Groceries" },
   ]);
+
+  const handleDelete = (expenseId: number) => {
+    setExpenses(expenses.filter((expense) => expense.id !== expenseId));
+  };
+
+  const categories = [
+    "All categories",
+    "Groceries",
+    "Utilities",
+    "Entertainment",
+  ];
 
   return (
     <>
@@ -37,7 +47,12 @@ const ExpenseTrackerList = () => {
               <td>{expense.amount}</td>
               <td>{expense.category}</td>
               <td>
-                <button className="btn btn-danger">Delete</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(expense.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
