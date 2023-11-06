@@ -1,8 +1,17 @@
+import React, { useState } from "react";
 import "./App.css";
-import Form from "./components/Form/Form";
+import ExpenseTrackerForm from "./components/ExpenseTracker/ExpenseTrackerForm/ExpenseTrackerForm";
+import ExpenseTrackerList from "./components/ExpenseTracker/ExpenseTrackerList/ExpenseTrackerList";
 
 function App() {
-  return <Form />;
+  const [expenseList, setExpenseList] = useState(null);
+
+  return (
+    <>
+      <ExpenseTrackerForm />
+      <ExpenseTrackerList />
+    </>
+  );
 }
 
 export default App;
