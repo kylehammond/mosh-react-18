@@ -1,33 +1,22 @@
-import React, { FormEvent, useState } from "react";
+import { ExpenseItem } from "../ExpenseItem";
+import { ExpenseItemCategories } from "../ExpenseItem";
 
-// interface ExpenseItem {
-//   id: number
-//   description: string;
-//   amount: number;
-//   category: string;
-// }
+interface Props {
+  expenses: ExpenseItem[];
+  onDelete: (id: number) => void;
+}
 
-const ExpenseTrackerList = () => {
-  const [expenses, setExpenses] = useState([
-    { id: 1, description: "Some item ", amount: 1, category: "Groceries" },
-    { id: 2, description: "Some item ", amount: 3, category: "Groceries" },
-  ]);
-
-  const handleDelete = (expenseId: number) => {
-    setExpenses(expenses.filter((expense) => expense.id !== expenseId));
-  };
-
-  const categories = [
-    "All categories",
-    "Groceries",
-    "Utilities",
-    "Entertainment",
-  ];
+const ExpenseTrackerList = ({ expenses, onDelete }: Props) => {
+  function getTotal() {
+    let sum = 0;
+    expenses.forEach((expense) => (sum += expense.amount));
+    return sum.toFixed(2);
+  }
 
   return (
     <>
       <select className="form-select" aria-label="Filter...">
-        {categories.map((category) => (
+        {ExpenseItemCategories.map((category) => (
           <option key={category}>{category}</option>
         ))}
       </select>
@@ -41,7 +30,7 @@ const ExpenseTrackerList = () => {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense) => (
+          {expenses?.map((expense) => (
             <tr key={expense.id}>
               <td>{expense.description}</td>
               <td>{expense.amount}</td>
@@ -49,13 +38,19 @@ const ExpenseTrackerList = () => {
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={() => handleDelete(expense.id)}
+                  onClick={() => onDelete(expense.id)}
                 >
                   Delete
                 </button>
               </td>
             </tr>
           ))}
+          <tr>
+            <td></td>
+            <td>Total: {getTotal()}</td>
+            <td></td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
     </>
