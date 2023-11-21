@@ -1,21 +1,15 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ExpenseItem, ExpenseItemCategories } from "../ExpenseItem";
 
-interface Inputs {
-  description: string;
-  amount: number;
-  category: string;
-}
-
 interface Props {
   onAdd: (expense: ExpenseItem) => void;
 }
 
 const ExpenseTrackerForm = ({ onAdd }: Props) => {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<ExpenseItem>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    onAdd(data as ExpenseItem);
+  const onSubmit: SubmitHandler<ExpenseItem> = (data) => {
+    onAdd(data);
   };
 
   return (
