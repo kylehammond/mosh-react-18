@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ExpenseItem } from "../ExpenseItem";
 import { ExpenseItemCategories } from "../ExpenseItem";
 
@@ -7,15 +8,29 @@ interface Props {
 }
 
 const ExpenseTrackerList = ({ expenses, onDelete }: Props) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>();
+
+  function getFilteredItems(expenses: ExpenseItem[]) {
+    return !selectedCategory || selectedCategory === "All categories"
+      ? expenses
+      : expenses.filter((expense) => expense.category === selectedCategory);
+  }
+
   function getTotal() {
     let sum = 0;
-    expenses.forEach((expense) => (sum += Number(expense.amount)));
+    getFilteredItems(expenses).forEach(
+      (expense) => (sum += Number(expense.amount))
+    );
     return sum.toFixed(2);
   }
 
   return (
     <>
-      <select className="form-select" aria-label="Filter...">
+      <select
+        onChange={(event) => setSelectedCategory(event.target.value)}
+        className="form-select"
+        aria-label="Filter..."
+      >
         {ExpenseItemCategories.map((category) => (
           <option key={category}>{category}</option>
         ))}
@@ -30,7 +45,7 @@ const ExpenseTrackerList = ({ expenses, onDelete }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {expenses?.map((expense) => (
+          {getFilteredItems(expenses).map((expense) => (
             <tr key={expense.id}>
               <td>{expense.description}</td>
               <td>{expense.amount}</td>
