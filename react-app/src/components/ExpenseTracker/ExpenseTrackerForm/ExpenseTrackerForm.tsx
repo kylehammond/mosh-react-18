@@ -8,10 +8,7 @@ interface Props {
 const ExpenseTrackerForm = ({ onAdd }: Props) => {
   const { register, handleSubmit } = useForm<ExpenseItem>();
 
-  const onSubmit: SubmitHandler<ExpenseItem> = (data) => {
-    onAdd(data);
-  };
-
+  const onSubmit: SubmitHandler<ExpenseItem> = (data) => onAdd(data);
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -19,7 +16,7 @@ const ExpenseTrackerForm = ({ onAdd }: Props) => {
           Description
         </label>
         <input
-          {...register("description")}
+          {...register("description", { required: true })}
           id="description"
           type="text"
           className="form-control"
@@ -28,16 +25,17 @@ const ExpenseTrackerForm = ({ onAdd }: Props) => {
           Amount
         </label>
         <input
-          {...register("amount")}
+          {...register("amount", { required: true, min: 0 })}
           id="amount"
-          type="text"
+          type="number"
+          step="any"
           className="form-control"
         ></input>
         <label htmlFor="category" className="form-label">
           Category
         </label>
         <select
-          {...register("category")}
+          {...register("category", { required: true })}
           className="form-select"
           aria-label="Categories..."
         >

@@ -9,8 +9,8 @@ interface Props {
 const ExpenseTrackerList = ({ expenses, onDelete }: Props) => {
   function getTotal() {
     let sum = 0;
-    expenses.forEach((expense) => (sum += expense.amount));
-    return Number(sum).toFixed(2);
+    expenses.forEach((expense) => (sum += Number(expense.amount)));
+    return sum.toFixed(2);
   }
 
   return (
