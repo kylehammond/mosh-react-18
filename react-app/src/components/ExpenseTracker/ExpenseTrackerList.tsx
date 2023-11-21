@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ExpenseItem } from "../ExpenseItem";
-import { ExpenseItemCategories } from "../ExpenseItem";
+import { ExpenseItem } from "./ExpenseItem";
+import { ExpenseItemCategories } from "./ExpenseItem";
 
 interface Props {
   expenses: ExpenseItem[];

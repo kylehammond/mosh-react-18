@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ExpenseItem, ExpenseItemCategories } from "../ExpenseItem";
+import { ExpenseItem, ExpenseItemCategories } from "./ExpenseItem";
 
 interface Props {
   onAdd: (expense: ExpenseItem) => void;
