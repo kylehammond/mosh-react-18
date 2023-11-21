@@ -41,7 +41,9 @@ const ExpenseTrackerForm = ({ onAdd }: Props) => {
           className="form-select"
           aria-label="Categories..."
         >
-          {ExpenseItemCategories.map((category) => (
+          {ExpenseItemCategories.filter(
+            (category) => category != "All categories"
+          ).map((category) => (
             <option key={category}>{category}</option>
           ))}
         </select>
